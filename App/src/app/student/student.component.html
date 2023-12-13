@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Students List</title>
+</head>
+<body>
+  <div class="container">
+    <h2>Students List</h2>
+    <table border="3">
+      <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>email</th>
+        <th>gender</th>
+        <th>actions</th>
+      </tr>
+      <tr *ngFor="let s of studentlist; let i = index" (click)="showStudents(s)">
+        <td>{{ s.id }}</td>
+        <td>{{ s.name }}</td>
+        <td>{{ s.email }}</td>
+        <td>{{ s.gender }}</td>
+        <td>
+          <button>Show student</button>
+        </td>
+      </tr>
+    </table>
+
+    <div class="selected-student" *ngIf="selectedStudent">
+      <h2>Selected Student Details</h2>
+      <p>ID: {{ selectedStudent.id }}</p>
+      <p>Name: {{ selectedStudent.name }}</p>
+      <p>Email: {{ selectedStudent.email }}</p>
+      <p>Gender: {{ selectedStudent.gender }}</p>
+    </div>
+
+    <button (click)="navigateToAddStudentForm()">Add Student</button>
+  </div>
+</body>
+</html>

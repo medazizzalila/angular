@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Form</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .container {
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .input-group {
+      margin-bottom: 15px;
+    }
+
+    .input-group-prepend {
+      text-align: center;
+    }
+
+    .form-control {
+      width: 100%;
+    }
+
+    .form-check {
+      margin-left: 20px;
+    }
+
+    button {
+      background-color: #007bff;
+      color: #ffffff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <form [formGroup]="studentform" (ngSubmit)="Submit()" class="container">
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Id</span>
+      </div>
+      <input
+        type="number"
+        aria-label="id"
+        id="id"
+        name="id"
+        formControlName="id"
+        class="form-control"
+      />
+    </div>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Name</span>
+      </div>
+      <input
+        type="text"
+        aria-label="name"
+        id="name"
+        name="name"
+        formControlName="name"
+        class="form-control"
+      />
+    </div>
+
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Email</span>
+      </div>
+      <textarea
+        aria-label="email"
+        id="email"
+        name="email"
+        formControlName="email"
+        class="form-control"
+      ></textarea>
+    </div>
+
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Gender</span>
+      </div>
+      <div class="form-check form-check-inline">
+        <input
+          class="form-check-input"
+          type="radio"
+          id="male"
+          name="gender"
+          formControlName="gender"
+          value="male"
+        />
+        <label class="form-check-label" for="male">Male</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input
+          class="form-check-input"
+          type="radio"
+          id="female"
+          name="gender"
+          formControlName="gender"
+          value="female"
+        />
+        <label class="form-check-label" for="female">Female</label>
+      </div>
+    </div>
+
+    <button type="submit">Submit</button>
+  </form>
+</body>
+</html>
